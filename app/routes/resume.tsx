@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useParams } from "react-router";
 import ATS from "~/components/ATS";
 import Details from "~/components/Details";
+import Navbar from "~/components/Navbar";
 import Summary from "~/components/Summary";
 import { usePuterStore } from "~/lib/puter";
 
@@ -48,7 +49,6 @@ const resume = () => {
 				setImageUrl(URL.createObjectURL(imgBlob));
 
 				setFeedback(feedback);
-				console.log({ resumeUrl, imageUrl, feedback });
 			} catch (error) {
 				console.error("Error fetching resume data:", error);
 			}
@@ -59,18 +59,11 @@ const resume = () => {
 
 	return (
 		<main className="pt-0!">
-			<nav className="resume-nav">
-				<Link to="/" className="back-button">
-					<img src="/icons/back.svg" alt="back button" className="size-2.5" />
-					<span className="text-sm font-semibold text-gray-800">
-						Back to Upload
-					</span>
-				</Link>
-			</nav>
+			<Navbar />
 			<div className="flex flex-row w-full max-lg:flex-col-reverse">
-				<section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-screen sticky top-0 items-center justify-center">
+				<section className="sticky top-0 h-screen sm:pt-16 px-4 flex flex-col items-center justify-center w-1/2 max-lg:w-full bg-[url('/images/bg-small.svg')] bg-cover">
 					{imageUrl && resumeUrl && (
-						<div className="animate-in fade-in delay-1000 gradient-border max-sm:m-0 h-[90%] max-2xl:h-fit w-fit">
+						<div className="animate-in fade-in delay-1000 gradient-border xl:h-[90%]">
 							<a href={resumeUrl} target="_blank" rel="noopener noreferrer">
 								<img
 									src={imageUrl}
@@ -83,7 +76,7 @@ const resume = () => {
 					)}
 				</section>
 
-				<section className="feedback-section">
+				<section className="feedback-section pt-20">
 					<h2 className="text-4xl font-bold text-black!">Resume Review</h2>
 					{feedback ? (
 						<div className="flex flex-col gap-8 animate-in fade-in duration-1000">

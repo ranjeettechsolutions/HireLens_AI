@@ -91,7 +91,6 @@ const upload = () => {
 		analysisData.feedback = JSON.parse(feedbackText);
 		await kv.set(`resume:${uuid}`, JSON.stringify(analysisData));
 		setStatusText("Analysis complete! Redirecting to results...");
-		console.log("Analysis data -", analysisData);
 		setIsProcessing(false);
 
 		navigate(`/resume/${uuid}`);
@@ -99,15 +98,20 @@ const upload = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const form = e.currentTarget.closest("form");
-		if (!form || !file) return;
+		console.log("Handle submit function executed!!");
+
+		const form = e.currentTarget;
 		const formData = new FormData(form);
+		console.log(formData);
 
 		const companyName = formData.get("company-name") as string;
 		const jobTitle = formData.get("job-title") as string;
 		const jobDescription = formData.get("job-description") as string;
 
-		handleAnalyze({ companyName, jobTitle, jobDescription, file });
+		if (!file) return;
+		console.log("Form data -", companyName, jobTitle, jobDescription, file);
+
+		// handleAnalyze({ companyName, jobTitle, jobDescription, file });
 	};
 
 	const handleFileSelect = (file: File | null) => {
@@ -115,17 +119,17 @@ const upload = () => {
 	};
 
 	return (
-		<main className="bg-[url('/images/bg-main.svg')] bg-cover">
+		<main className="bg-[url('/images/bg-small.svg')] bg-cover object-cover relative">
 			<Navbar />
 
 			<section className="main-section">
 				<div className="page-heading py-16">
-					<h1>Smart feedback for your dream job</h1>
+					<h1>Get your resume ATS-Ready in Minutes</h1>
 
 					{isProcessing ? (
 						<>
 							<h2>{statusText}</h2>
-							<img src="/images/resume-scan.gif" className="w-full" />
+							<img src="/images/resume-scan.gif" className="size-96" />
 						</>
 					) : (
 						<h2>Drop your resume for an ATS score and improvement tips</h2>
@@ -134,8 +138,8 @@ const upload = () => {
 					{!isProcessing && (
 						<form
 							id="upload-form"
-							onClick={handleSubmit}
-							className="flex flex-col gap-4 mt-8"
+							onSubmit={handleSubmit}
+							className="flex flex-col mt-8"
 						>
 							{/* Company Name */}
 							<div className="form-div">
@@ -144,7 +148,7 @@ const upload = () => {
 									type="text"
 									id="company-name"
 									name="company-name"
-									placeholder="Company Name"
+									placeholder="e.g. Google, Amazon, Infosys"
 									required
 								/>
 							</div>
@@ -155,7 +159,7 @@ const upload = () => {
 									type="text"
 									id="job-title"
 									name="job-title"
-									placeholder="Job Title"
+									placeholder="e.g. Frontend Developer, Software Engineer"
 									required
 								/>
 							</div>
@@ -165,7 +169,7 @@ const upload = () => {
 								<textarea
 									id="job-description"
 									name="job-description"
-									placeholder="Job description"
+									placeholder="Paste the job description from the company's job posting here."
 									rows={5}
 									required
 								></textarea>
@@ -176,7 +180,10 @@ const upload = () => {
 								<FileUploader onFileSelect={handleFileSelect} />
 							</div>
 
-							<button type="submit" className="primary-button">
+							<button
+								type="submit"
+								className="primary-button font-semibold mt-4 sm:mt-6"
+							>
 								Analyze Resume
 							</button>
 						</form>

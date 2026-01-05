@@ -25,7 +25,7 @@ const ScoreBadge = ({ score }: { score: number }) => {
 			/>
 			<p
 				className={cn(
-					"text-sm font-medium",
+					"sm:text-sm text-xs font-medium",
 					score > 69
 						? "text-badge-green-text"
 						: score > 39
@@ -48,7 +48,7 @@ const CategoryHeader = ({
 }) => {
 	return (
 		<div className="flex flex-row gap-4 items-center py-2">
-			<p className="text-2xl font-semibold">{title}</p>
+			<p className="text-xl font-semibold">{title}</p>
 			<ScoreBadge score={categoryScore} />
 		</div>
 	);
@@ -61,7 +61,7 @@ const CategoryContent = ({
 }) => {
 	return (
 		<div className="flex flex-col gap-4 items-center w-full">
-			<div className="bg-gray-50 w-full rounded-lg px-5 py-4 grid grid-cols-2 gap-4">
+			<div className="bg-gray-50 w-full rounded-lg p-4 grid-cols-2 gap-4 sm:grid hidden">
 				{tips.map((tip, index) => (
 					<div className="flex flex-row gap-2 items-center" key={index}>
 						<img
@@ -71,7 +71,7 @@ const CategoryContent = ({
 							alt="score"
 							className="size-5"
 						/>
-						<p className="text-xl text-gray-500 ">{tip.tip}</p>
+						<p className="text-lg text-gray-500 ">{tip.tip}</p>
 					</div>
 				))}
 			</div>

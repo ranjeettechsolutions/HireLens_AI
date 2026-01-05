@@ -28,20 +28,20 @@ const FileUploader = ({ onFileSelect }: fileUploaderProps) => {
 	const file = acceptedFiles[0] || null;
 
 	return (
-		<div className="w-full gradient-border">
+		<div className="w-full gradient-border bg-white inset-shadow">
 			<div {...getRootProps()}>
 				<input {...getInputProps()} />
 
-				<div className="space-y-4 cursor-pointer">
+				<div className="space-y-4 cursor-pointer rounded-2xl	">
 					{file ? (
 						<div
 							className="uploader-selected-file"
 							onClick={(e) => e.stopPropagation()}
 						>
 							<img src="/images/pdf.png" alt="pdf" className="size-10" />
-							<div className="flex items-center space-x-3">
-								<div>
-									<p className="text-sm font-medium text-gray-700 truncate max-w-xs">
+							<div className="flex items-center gap-3">
+								<div className="flex flex-col sm:gap-2 gap-1">
+									<p className="text-sm font-medium text-gray-700 break-all">
 										{file?.name}
 									</p>
 									<p className="text-sm text-gray-500">
@@ -50,24 +50,32 @@ const FileUploader = ({ onFileSelect }: fileUploaderProps) => {
 								</div>
 							</div>
 							<button
-								className="p-2 cursor-pointer"
+								className="cursor-pointer bg-gray-200 hover:bg-gray-300/70 rounded-full py-1 px-2 sm:py-2 "
 								onClick={(e) => {
 									onFileSelect?.(null);
 								}}
 							>
-								<img src="/icons/cross.svg" alt="remove" className="size-4" />
+								<img
+									src="/icons/cross.svg"
+									alt="remove"
+									className="sm:size-4 size-6"
+								/>
 							</button>
 						</div>
 					) : (
-						<div>
-							<div className="mx-auto mb-2 size-16 flex justify-center items-center">
-								<img src="/icons/info.svg" alt="upload" className="size-20" />
+						<div className="py-2">
+							<div className="mx-auto mb-2 flex justify-center items-center">
+								<img
+									src="/icons/info.svg"
+									alt="upload"
+									className="sm:size-12 size-10"
+								/>
 							</div>
-							<p className="text-lg text-gray-500">
+							<p className="sm:text-base text-sm text-gray-500">
 								<span className="font-semibold">Click to upload</span> or drag
 								and drop
 							</p>
-							<p className="text-sm text-gray-400">
+							<p className="text-xs text-gray-400">
 								PDF (max {formatSize(maxFileSize)})
 							</p>
 						</div>

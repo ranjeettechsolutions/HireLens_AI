@@ -31,7 +31,6 @@ export default function Home() {
 			const parsedResumes = storedResumes?.map(
 				(resume) => JSON.parse(resume.value) as Resume
 			);
-			console.log("ParsedResumes -", parsedResumes);
 
 			setResumes(parsedResumes || []);
 			setLoadingResumes(false);
@@ -40,16 +39,17 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main className="bg-[url('/images/bg-main.svg')] bg-cover">
+		<main className="bg-[url('/images/bg-small.svg')] bg-cover object-cover">
 			<Navbar />
 
 			<section className="main-section">
 				<div className="page-heading py-16">
-					<h1>Track Your Applications & Resume Ratings</h1>
+					<h1>Smart feedback for Modern Hiring Systems</h1>
 
 					{!loadingResumes && resumes?.length === 0 ? (
 						<h2 className="mt-4 text-gray-600">
-							No resumes found. Upload your first resume to get feedback.
+							Upload your resume and instantly see how well it performs in
+							Applicant Tracking Systems.
 						</h2>
 					) : (
 						<h2>Review your submissions and check AI-powered feedback.</h2>
@@ -83,6 +83,29 @@ export default function Home() {
 						</Link>
 					</div>
 				)}
+
+				<div className="pt-4 mt-20 flex sm:justify-between items-center text-center gap-4 flex-col md:flex-row container">
+					<a
+						href="https://hirelensai.vercel.app/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="HireLens ATS"
+						className="text-gradient hover:gradient-hover"
+					>
+						© {new Date().getFullYear()} HireLens | Designed for Modern Hiring
+						Systems.
+					</a>
+
+					<a
+						href="https://ranjeettechsolutions.vercel.app/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Developed by RanjeetTechSolutions™"
+						className="text-gradient hover:gradient-hover"
+					>
+						Developed by RanjeetTechSolutions™.
+					</a>
+				</div>
 			</section>
 		</main>
 	);

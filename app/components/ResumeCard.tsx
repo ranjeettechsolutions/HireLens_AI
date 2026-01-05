@@ -22,43 +22,39 @@ const ResumeCard = ({
 	}, [imagePath]);
 
 	return (
-		<Link
-			to={`/resume/${resumePath}`}
-			className="resume-card animate-in fade-in duration-1000"
-		>
-			<div className="resume-card-header">
-				<div className="flex flex-col gap-2">
-					{companyName && (
-						<div className="font-bold text-black! wrap-break-word">
-							{companyName}
-						</div>
-					)}
-					{jobTitle && (
-						<h3 className="text-lg wrap-break-word text-gray-500">
-							{jobTitle}
-						</h3>
-					)}
-					{!companyName && !jobTitle && (
-						<h2 className="text-black! font-bold">Resume</h2>
-					)}
-				</div>
-				<div className="shrink-0">
-					<ScoreCircle score={feedback.overallScore} />
-				</div>
-			</div>
+		<>
+			<Link
+				to={`/resume${resumePath}`}
+				className="resume-card animate-in fade-in duration-1000"
+			>
+				<div className="resume-card-header">
+					<div className="flex flex-col gap-2 w-full text-center">
+						<h2 className="font-bold text-black! wrap-break-word truncate">
+							{companyName || "Resume Analysis"}
+						</h2>
 
-			{resumeUrl && (
-				<div className="gradient-border animate-in fade-in duration-1000">
-					<div className="size-full">
-						<img
-							src={resumeUrl}
-							alt="resume"
-							className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
-						/>
+						<h3 className="text-lg text-gray-500 wrap-break-word truncate">
+							{jobTitle || "General Role Match"}
+						</h3>
+					</div>
+					<div className="shrink-0">
+						<ScoreCircle score={feedback.overallScore} />
 					</div>
 				</div>
-			)}
-		</Link>
+
+				{resumeUrl && (
+					<div className="gradient-border animate-in fade-in duration-1000">
+						<div className="size-full">
+							<img
+								src={resumeUrl}
+								alt="resume"
+								className="w-full h-[350px] max-sm:h-[200px] object-cover object-top rounded-xl"
+							/>
+						</div>
+					</div>
+				)}
+			</Link>
+		</>
 	);
 };
 
