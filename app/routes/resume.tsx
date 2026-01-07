@@ -8,7 +8,7 @@ import Summary from "~/components/Summary";
 import { usePuterStore } from "~/lib/puter";
 
 export const meta = () => [
-	{ title: "HireLens - Resume Analysis" },
+	{ title: "HireLens | Analysis" },
 	{
 		name: "description",
 		content:

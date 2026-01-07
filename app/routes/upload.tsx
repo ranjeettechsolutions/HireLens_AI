@@ -7,6 +7,16 @@ import { convertPdfToImage } from "~/lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
 import { generateUUID } from "~/lib/utils";
 
+export function meta() {
+	return [
+		{ title: "HireLens | Upload" },
+		{
+			name: "description",
+			content: "Upload your resume for ATS score and improvement tips",
+		},
+	];
+}
+
 const upload = () => {
 	const [isProcessing, setIsProcessing] = useState(false);
 	const [statusText, setStatusText] = useState("");
