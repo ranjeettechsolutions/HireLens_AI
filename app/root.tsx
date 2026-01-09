@@ -26,7 +26,8 @@ export const meta: Route.MetaFunction = () => {
 		},
 		{
 			property: "og:image",
-			content: "https://hirelensai.vercel.app/og-image.png",
+			content:
+				"https://res.cloudinary.com/drypmkfdn/image/upload/v1767975468/og-image_qix7sd.png",
 		},
 		{ property: "og:image:width", content: "1200" },
 		{ property: "og:image:height", content: "630" },
@@ -54,7 +55,8 @@ export const meta: Route.MetaFunction = () => {
 		},
 		{
 			name: "twitter:image",
-			content: "https://hirelensai.vercel.app/og-image.png",
+			content:
+				"https://res.cloudinary.com/drypmkfdn/image/upload/v1767975468/og-image_qix7sd.png",
 		},
 	];
 };
