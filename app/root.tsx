@@ -17,7 +17,7 @@ export const meta: Route.MetaFunction = () => {
 		{ property: "og:type", content: "website" },
 		{
 			property: "og:title",
-			title: "HireLens — Optimize your resume in seconds.",
+			content: "HireLens — Optimize your resume in seconds.",
 		},
 		{
 			name: "description",
