@@ -12,6 +12,53 @@ import "./app.css";
 import { usePuterStore } from "./lib/puter";
 import { useEffect } from "react";
 
+export const meta: Route.MetaFunction = () => {
+	return [
+		{ property: "og:type", content: "website" },
+		{
+			property: "og:title",
+			title: "HireLens — Optimize your resume in seconds.",
+		},
+		{
+			name: "description",
+			content:
+				"Scan your resume, get an ATS score, and receive actionable improvement tips built for modern hiring systems.",
+		},
+		{
+			property: "og:image",
+			content: "https://hirelensai.vercel.app/og-image.png",
+		},
+		{ property: "og:image:width", content: "1200" },
+		{ property: "og:image:height", content: "630" },
+		{
+			property: "og:image:alt",
+			content:
+				"HireLens resume analysis platform showing ATS score and improvement insights",
+		},
+		{ property: "og:url", content: "https://hirelensai.vercel.app/" },
+		{
+			property: "og:site_name",
+			content: "HireLens",
+		},
+
+		// Optional but recommended
+		{ name: "twitter:card", content: "summary_large_image" },
+		{
+			name: "twitter:title",
+			content: "HireLens — Optimize your resume in seconds.",
+		},
+		{
+			name: "twitter:description",
+			content:
+				"ATS score analysis and resume improvement tips designed for real hiring systems.",
+		},
+		{
+			name: "twitter:image",
+			content: "https://hirelensai.vercel.app/og-image.png",
+		},
+	];
+};
+
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
 	{
