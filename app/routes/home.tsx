@@ -4,12 +4,55 @@ import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
-export function meta() {
+export const meta = () => {
 	return [
 		{ title: "HireLens AI" },
-		{ name: "description", content: "Where resumes meet reality" },
+		{ property: "og:type", content: "website" },
+		{
+			property: "og:title",
+			content: "HireLens AI",
+		},
+		{
+			name: "description",
+			content:
+				"Scan your resume, get an ATS score, and receive actionable improvement tips built for modern hiring systems.",
+		},
+		{
+			property: "og:image",
+			content:
+				"https://res.cloudinary.com/drypmkfdn/image/upload/v1767975468/og-image_qix7sd.png",
+		},
+		{ property: "og:image:width", content: "1200" },
+		{ property: "og:image:height", content: "630" },
+		{
+			property: "og:image:alt",
+			content:
+				"HireLens resume analysis platform showing ATS score and improvement insights",
+		},
+		{ property: "og:url", content: "https://hirelensai.vercel.app/" },
+		{
+			property: "og:site_name",
+			content: "HireLens",
+		},
+
+		// Optional but recommended
+		{ name: "twitter:card", content: "summary_large_image" },
+		{
+			name: "twitter:title",
+			content: "HireLens — Optimize your resume in seconds.",
+		},
+		{
+			name: "twitter:description",
+			content:
+				"ATS score analysis and resume improvement tips designed for real hiring systems.",
+		},
+		{
+			name: "twitter:image",
+			content:
+				"https://res.cloudinary.com/drypmkfdn/image/upload/v1767975468/og-image_qix7sd.png",
+		},
 	];
-}
+};
 
 export default function Home() {
 	const { auth, kv } = usePuterStore();
