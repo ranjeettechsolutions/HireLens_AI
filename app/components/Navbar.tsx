@@ -13,7 +13,7 @@ const Navbar = () => {
 					</p>
 				</Link>
 				
-				<button className="group relative flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold text-red-600
+				<button className="group relative flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm font-semibold cursor-pointer text-red-600
 					transition-all duration-200 hover:bg-red-600 hover:text-white hover:border-red-600 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
           			onClick={auth.signOut} >
           			<span>Logout</span>
