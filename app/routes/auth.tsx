@@ -10,12 +10,16 @@ export const meta = () => [
 const auth = () => {
 	const { isLoading, auth } = usePuterStore();
 	const location = useLocation();
-	const next = location.search.split("next=")[1];
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (auth.isAuthenticated) navigate(next);
-	}, [auth.isAuthenticated, next]);
+		if(!auth.isAuthenticated) return;
+
+		const params = new URLSearchParams(location.search);
+		const nextPath = params.get("next") || "/";
+
+		navigate(nextPath, { replace: true });
+	}, [auth.isAuthenticated, location.search, navigate]);
 
 	return (
 		<main className="bg-[url('/images/bg-small.svg')] bg-cover object-cover min-h-screen flex items-center justify-center">
@@ -28,17 +32,17 @@ const auth = () => {
 
 					<div className="flex justify-center items-center">
 						{isLoading ? (
-							<button className="auth-button animate-pulse">
+							<button className="auth-button animate-pulse" disabled={isLoading}>
 								<p>Signing you in</p>
 							</button>
 						) : (
 							<>
 								{auth.isAuthenticated ? (
-									<button className="auth-button" onClick={auth.signOut}>
+									<button className="auth-button" onClick={auth.signOut} disabled={isLoading}>
 										<p>Log Out</p>
 									</button>
 								) : (
-									<button className="auth-button" onClick={auth.signIn}>
+									<button className="auth-button" onClick={auth.signIn} disabled={isLoading}>
 										<p>Log In</p>
 									</button>
 								)}
