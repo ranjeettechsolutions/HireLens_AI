@@ -185,7 +185,7 @@ const upload = () => {
 
 			<section className="main-section">
 				<div className="page-heading py-16">
-					<h1>Get your resume ATS-Ready in Minutes</h1>
+					<h1>Get your resume ATS-Ready in Seconds</h1>
 
 					{isProcessing ? (
 						<>
