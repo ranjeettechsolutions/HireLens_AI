@@ -126,29 +126,30 @@ export default function Home() {
 					</div>
 				)}
 
-				<div className="py-5 px-3 mt-20 mx-auto flex sm:justify-between items-center text-center gap-4 flex-col md:flex-row container">
-					<a
-						href="https://hirelensai.vercel.app/"
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="HireLens ATS"
-						className="text-gradient hover:gradient-hover"
-					>
-						© {new Date().getFullYear()} HireLens | Designed for Modern Hiring
-						Systems
-					</a>
-
-					<a
-						href="https://ranjeettechsolutions.vercel.app/"
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="Developed by RanjeetTechSolutions™"
-						className="text-gradient hover:gradient-hover"
-					>
-						Developed by RanjeetTechSolutions™
-					</a>
-				</div>
 			</section>
+			
+			<div className="py-5 px-3 mt-20 mx-auto flex sm:justify-between items-center text-center gap-4 flex-col md:flex-row container">
+				<a
+					href="https://hirelensai.vercel.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="HireLens ATS"
+					className="text-gradient hover:gradient-hover"
+				>
+					© {new Date().getFullYear()} HireLens | Designed for Modern Hiring
+					Systems
+				</a>
+
+				<a
+					href="https://ranjeettechsolutions.vercel.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Developed by RanjeetTechSolutions™"
+					className="text-gradient hover:gradient-hover"
+				>
+					Developed by RanjeetTechSolutions™
+				</a>
+			</div>
 		</main>
 	);
 }
