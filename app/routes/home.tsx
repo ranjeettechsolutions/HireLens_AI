@@ -81,10 +81,10 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main className="bg-[url('/images/bg-small.svg')] bg-cover object-cover">
+		<main className="min-h-screen flex flex-col bg-[url('/images/bg-small.svg')] bg-cover">
 			<Navbar />
 
-			<section className="main-section">
+			<section className="main-section flex-1 justify-center">
 				<div className="page-heading py-16">
 					<h1>Smart feedback for Modern Hiring Systems</h1>
 
@@ -98,7 +98,7 @@ export default function Home() {
 					)}
 				</div>
 				{loadingResumes && (
-					<div className="flex flex-col items-center justify-center">
+					<div className="flex items-center justify-center">
 						<img
 							src="/images/resume-scan-2.gif"
 							alt="Scanning resumes"
@@ -126,7 +126,7 @@ export default function Home() {
 					</div>
 				)}
 
-				<div className="pt-4 mt-20 flex sm:justify-between items-center text-center gap-4 flex-col md:flex-row container">
+				<div className="py-5 px-3 mt-20 mx-auto flex sm:justify-between items-center text-center gap-4 flex-col md:flex-row container">
 					<a
 						href="https://hirelensai.vercel.app/"
 						target="_blank"
@@ -135,7 +135,7 @@ export default function Home() {
 						className="text-gradient hover:gradient-hover"
 					>
 						© {new Date().getFullYear()} HireLens | Designed for Modern Hiring
-						Systems.
+						Systems
 					</a>
 
 					<a
@@ -145,7 +145,7 @@ export default function Home() {
 						aria-label="Developed by RanjeetTechSolutions™"
 						className="text-gradient hover:gradient-hover"
 					>
-						Developed by RanjeetTechSolutions™.
+						Developed by RanjeetTechSolutions™
 					</a>
 				</div>
 			</section>
