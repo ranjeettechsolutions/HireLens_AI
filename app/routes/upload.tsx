@@ -1,5 +1,5 @@
 import { prepareInstructions } from "../../constants";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import FileUploader from "~/components/FileUploader";
 import Navbar from "~/components/Navbar";
@@ -178,6 +178,10 @@ const upload = () => {
 			return rest;
 		});
 	};
+
+	useEffect(() => {
+    if (!auth.isAuthenticated) navigate("/auth/?next=/upload");
+ 	}, [auth.isAuthenticated]);
 
 	return (
 		<main className="bg-[url('/images/bg-small.svg')] bg-cover object-cover relative">
